@@ -2,7 +2,8 @@
   "version": "1.0.0-*",
 
   "dependencies": {
-    "Microsoft.Web.Administration": "7.0.0"
+    "Microsoft.Web.Administration": "7.0.0",
+    "Autofac": "4.3.0"
   },
 
   "frameworks": {

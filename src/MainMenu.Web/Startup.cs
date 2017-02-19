@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using MainMenu.IisAdministration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,10 +25,16 @@ namespace MainMenu.Web
         public IConfigurationRoot Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
             services.AddMvc();
+
+            var containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterModule<IisAdministrationModule>();
+            containerBuilder.Populate(services);
+
+            return new AutofacServiceProvider(containerBuilder.Build());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

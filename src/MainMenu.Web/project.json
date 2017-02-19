@@ -19,6 +19,8 @@
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.0",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.1.0",
     "Topshelf": "4.0.3",
+    "Autofac": "4.3.0",
+    "Autofac.Extensions.DependencyInjection": "4.0.0",
     "MainMenu.IisAdministration": "1.0.0-*"
   },
 
