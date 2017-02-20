@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
+﻿using Topshelf;
 
 namespace MainMenu.Web
 {
@@ -11,14 +6,15 @@ namespace MainMenu.Web
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
-                .UseStartup<Startup>()
-                .Build();
-
-            host.Run();
+            HostFactory.Run(config =>
+            {
+                config.Service<WebHostingService>(service =>
+                {
+                    service.ConstructUsing(() => new WebHostingService());
+                    service.WhenStarted(x => x.Start());
+                    service.WhenStopped(x => x.Stop());
+                });
+            });
         }
     }
 }
