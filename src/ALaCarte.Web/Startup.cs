@@ -1,14 +1,14 @@
 ﻿using System;
+using ALaCarte.IisAdministration;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using MainMenu.IisAdministration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace MainMenu.Web
+namespace ALaCarte.Web
 {
     public class Startup
     {

@@ -1,8 +1,7 @@
-﻿using System.IO;
-using System.Threading;
+﻿using System.Threading;
 using Microsoft.AspNetCore.Hosting;
 
-namespace MainMenu.Web
+namespace ALaCarte.Web
 {
     public class WebHostingService
     {

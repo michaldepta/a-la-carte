@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using MainMenu.IisAdministration;
-using MainMenu.IisAdministration.Models;
+using ALaCarte.IisAdministration;
+using ALaCarte.IisAdministration.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MainMenu.Web.Controllers
+namespace ALaCarte.Web.Controllers.Api
 {
     [Route("api/[controller]")]
     public class WebSitesController : Controller

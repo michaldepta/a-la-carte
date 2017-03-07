@@ -1,6 +1,6 @@
 ﻿using Topshelf;
 
-namespace MainMenu.Web
+namespace ALaCarte.Web
 {
     public class Program
     {

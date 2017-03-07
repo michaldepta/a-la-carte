@@ -1,6 +1,6 @@
 ﻿using Autofac;
 
-namespace MainMenu.IisAdministration
+namespace ALaCarte.IisAdministration
 {
     public class IisAdministrationModule : Module
     {

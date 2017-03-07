@@ -1,4 +1,4 @@
-﻿namespace MainMenu.IisAdministration.Models
+﻿namespace ALaCarte.IisAdministration.Models
 {
     public class WebSite
     {

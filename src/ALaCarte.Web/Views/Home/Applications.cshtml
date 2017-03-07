@@ -1,0 +1,26 @@
+﻿@using ALaCarte.IisAdministration.Models
+@model IEnumerable<ALaCarte.IisAdministration.Models.WebApplication>
+
+@{
+    ViewData["Title"] = "Web Applications";
+}
+
+<div>
+    <h2>@ViewData["SiteName"] - applications</h2>
+    <ul>
+        @foreach (var app in Model)
+        {
+            <li>
+                @app.Path:
+                <ul>
+                    @foreach (var link in app.Links)
+                    {
+                        <li>
+                            <a href="@link">@link</a>
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+</div>

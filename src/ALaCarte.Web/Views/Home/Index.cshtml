@@ -1,7 +1,17 @@
-﻿@{
+﻿@using ALaCarte.IisAdministration.Models
+@model IEnumerable<ALaCarte.IisAdministration.Models.WebSite>
+
+@{
     ViewData["Title"] = "Web Sites";
 }
 
 <div>
-    b  
+    <h1>Web Sites on this server:</h1>
+    <ul>
+        @foreach (var site in Model)
+        {
+            <li><a asp-action="Applications" asp-route-id="@site.Id">@site.Name</a></li>
+        }
+    </ul>
+
 </div>
