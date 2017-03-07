@@ -10,7 +10,8 @@ namespace MainMenu.Web
 
         public void Start() => new WebHostBuilder()
                 .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory()) // Changed by topshelf...
+                .UseContentRoot(@"C:\Projects\github\ALaCarte\src\ALaCarte.Web")
+                //.UseContentRoot(Directory.GetCurrentDirectory()) // Changed by topshelf...
                 .UseIISIntegration()
                 .UseStartup<Startup>()
                 .Build()

@@ -21,7 +21,7 @@
     "Topshelf": "4.0.3",
     "Autofac": "4.3.0",
     "Autofac.Extensions.DependencyInjection": "4.0.0",
-    "MainMenu.IisAdministration": "1.0.0-*"
+    "ALaCarte.IisAdministration": "1.0.0-*"
   },
 
   "tools": {

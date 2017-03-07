@@ -31,5 +31,7 @@ namespace MainMenu.Web.Controllers
         {
             return View();
         }
+
+        public IActionResult WebSites() => View();
     }
 }
