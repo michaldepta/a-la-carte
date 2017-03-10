@@ -1,4 +1,4 @@
-# a-la-carte
+# a'la carte
 IIS web sites and applicaitons catalog
 
 A'la Carte displays web sites and applications hosted on an IIS server. It can be helpful in testing environments where Continuous Deployment is practiced for every VCS branch.

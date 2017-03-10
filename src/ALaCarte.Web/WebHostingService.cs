@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
@@ -14,7 +15,7 @@ namespace ALaCarte.Web
             _contentRoot = contentRoot;
         }
 
-        public void Start() => new WebHostBuilder()
+        public void Start() => Task.Run(() => new WebHostBuilder()
             .UseKestrel()
             .UseContentRoot(_contentRoot)
             .UseIISIntegration()
@@ -22,7 +23,7 @@ namespace ALaCarte.Web
             .UseConfiguration(
                 new ConfigurationBuilder().SetBasePath(_contentRoot).AddJsonFile("hosting.json", true).Build())
             .Build()
-            .Run(_shutdownTokenSource.Token);
+            .Run(_shutdownTokenSource.Token));
 
         public void Stop() => _shutdownTokenSource.Cancel();
     }

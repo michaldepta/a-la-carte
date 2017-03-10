@@ -43,6 +43,7 @@ namespace ALaCarte.Web
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            loggerFactory.AddEventLog(LogLevel.Warning);
 
             if (env.IsDevelopment())
             {
