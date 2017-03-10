@@ -3,6 +3,7 @@
 
   "dependencies": {
     "Microsoft.Web.Administration": "7.0.0",
+    "Microsoft.Extensions.Options": "1.1.1",
     "Autofac": "4.3.0"
   },
 

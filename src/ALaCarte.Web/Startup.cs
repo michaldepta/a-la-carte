@@ -16,7 +16,7 @@ namespace ALaCarte.Web
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
@@ -29,6 +29,7 @@ namespace ALaCarte.Web
         {
             // Add framework services.
             services.AddMvc();
+            services.Configure<WebServerOptions>(Configuration.GetSection("WebServer"));
 
             var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterModule<IisAdministrationModule>();

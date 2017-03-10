@@ -1,13 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using ALaCarte.IisAdministration.Models;
+using Microsoft.Extensions.Options;
 using Microsoft.Web.Administration;
 
 namespace ALaCarte.IisAdministration
 {
     public class WebServer
     {
+        private readonly string _hostName;
         private readonly ServerManager _serverManager = new ServerManager();
+
+        public WebServer(IOptions<WebServerOptions> optionsAccessor)
+        {
+            _hostName = optionsAccessor.Value.HostName;
+        }
 
         public IEnumerable<WebSite> GetSites()
             => _serverManager.Sites.Select(x => new WebSite(x.Id, x.Name, x.State.ToString()));
@@ -22,7 +29,7 @@ namespace ALaCarte.IisAdministration
                 .Select(app => new WebApplication(app.Path, app.EnabledProtocols, site.Bindings.Select(x => BuildApplicationLink(x, app.Path))));
         }
 
-        private static string BuildApplicationLink(Binding binding, string appPath)
-            => $"{binding.Protocol}://localhost:{binding.EndPoint.Port}{appPath}";
+        private string BuildApplicationLink(Binding binding, string appPath)
+            => $"{binding.Protocol}://{_hostName}:{binding.EndPoint.Port}{appPath}";
     }
 }
